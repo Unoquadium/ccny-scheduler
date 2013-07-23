@@ -1,6 +1,9 @@
 import sys 
 from BeautifulSoup import BeautifulSoup
 import re
+import HTMLParser
+
+h = HTMLParser.HTMLParser()
 
 
 html_doc = sys.stdin.read()
@@ -42,11 +45,11 @@ for thing in things :
 		if whiteboxcounter == len(whiteboxschema):
 			print '-----------'
 			whiteboxcounter = 0
-		print whiteboxschema[whiteboxcounter]+": "+thing.getText()
+		print whiteboxschema[whiteboxcounter]+": "+ h.unescape(thing.getText())
 		whiteboxcounter = whiteboxcounter + 1;
 	if thing['class'] == 'bigwhitebox':
 		if bigwhiteboxcounter == len(bigwhiteboxschema):
 			print '-----------'
 			bigwhiteboxcounter = 0
-		print bigwhiteboxschema[bigwhiteboxcounter]+": "+thing.getText()
+		print bigwhiteboxschema[bigwhiteboxcounter]+": "+h.unescape(thing.getText())
 		bigwhiteboxcounter = bigwhiteboxcounter + 1;
