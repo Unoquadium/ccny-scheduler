@@ -1,0 +1,8 @@
+
+1) I elected to use an html parser called BeautifulSoup, http://www.crummy.com/software/BeautifulSoup/. Everyone praises it, and finding shit in html is similar, IMHO, to the way it's done in JQuery. It's compatible with both python 2.x and 3.x (there's a significant difference between the two). I also chose to use python 2.x because that's what most people use for now. 2.x is stable and awesome, 3.x is the future. As soon as I am in your dev box I will set this up, or you can; there's several ways to do it right on BeautifulSoup's front page, but I don't know which flavor of linux you're on.
+
+2) There's a file in here, curlCmd, which is a stripped down version of of the curl you get if you sniff the request in Chrome and copy as cURL (thank you Google for this awesome feature). I would use a python library to fetch the page but I feel lke it's simpler to decouple this from the parsing script at least for now. Your input is welcome. Checkout out the curl command, I don't think it could be stripped down further. My next commit will have a small shell script that will take a semester as a parameter (season and year). 
+
+3) Today or tomorrow I'm going to form actual objects while parsing instead of just printing them out. Then I'll be ready to write them to mysql.
+
+4) "./curlCmd | python parse.py" should run fine, if you have beautifulSoup and python 2.7 installed. You may need to chmod curlCmd 
