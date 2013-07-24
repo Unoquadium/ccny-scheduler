@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: MyString
+  start_time: 2013-07-23 20:31:18
+  end_time: 2013-07-23 20:31:18
+  instructor: MyString
+  building: MyString
+  room: MyString
+  online: false
+  section_id: 1
+
+two:
+  day: MyString
+  start_time: 2013-07-23 20:31:18
+  end_time: 2013-07-23 20:31:18
+  instructor: MyString
+  building: MyString
+  room: MyString
+  online: false
+  section_id: 1

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  section: MyString
+  code: MyString
+  open_seats: 1
+  course_id: 1
+
+two:
+  section: MyString
+  code: MyString
+  open_seats: 1
+  course_id: 1
