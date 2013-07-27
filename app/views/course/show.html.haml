@@ -1,0 +1,32 @@
+%h1= @course
+
+#information
+
+	%h2 Course Information
+
+	%strong Subject:
+	#{@course.subject}
+	%br
+
+	%strong Credits:
+	#{@course.credits.to_f}
+	%br
+	%strong Hours:
+	#{@course.hours}
+	%br
+
+	%strong Description:
+	#{@course.description}
+
+	%h2 Sections
+
+	-# for displaying times:
+	-# - s_time = time.start_time.to_time.strftime('%l:%M %p')
+	-# - e_time = time.end_time.to_time.strftime('%l:%M %p')
+
+	%table{:border=>1}
+		- @sections.each do |sec|
+			%tr
+				%td= sec.section
+				%td= sec.code
+				%td= sec.open_seats
