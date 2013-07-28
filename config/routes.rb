@@ -6,7 +6,7 @@ CcnyScheduler::Application.routes.draw do
   resources :schedule
 
   # courses view - so far you can only view courses from the app
-  resources :course, only: [:show]
+  resources :course, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

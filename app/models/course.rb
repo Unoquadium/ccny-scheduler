@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
 
   # Helpers
   def to_s
-  	"#{prefix} #{number} - #{title}"
+  	"#{prefix} #{number}"
   end
 
 end

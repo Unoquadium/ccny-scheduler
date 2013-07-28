@@ -1,0 +1,9 @@
+- provide(:title, 'All Courses')
+
+.container
+
+	%h1 All Courses
+
+	%ul
+		- @courses.each do |course|
+			%li #{link_to course, course_path(course)}

@@ -1,32 +1,55 @@
-%h1= @course
+- provide(:title, @course)
 
-#information
+.container
 
-	%h2 Course Information
+	%h1
+		#{@course} - #{@course.title}
 
-	%strong Subject:
-	#{@course.subject}
-	%br
+	#information
 
-	%strong Credits:
-	#{@course.credits.to_f}
-	%br
-	%strong Hours:
-	#{@course.hours}
-	%br
+		%h2 Course Information
 
-	%strong Description:
-	#{@course.description}
+		%strong Subject:
+		#{@course.subject}
+		%br
 
-	%h2 Sections
+		%strong Credits:
+		#{@course.credits.to_f}
+		%br
+		%strong Hours:
+		#{@course.hours}
+		%br
 
-	-# for displaying times:
-	-# - s_time = time.start_time.to_time.strftime('%l:%M %p')
-	-# - e_time = time.end_time.to_time.strftime('%l:%M %p')
+		%strong Description:
+		#{@course.description}
 
-	%table{:border=>1}
+		%h2 Sections
+
 		- @sections.each do |sec|
-			%tr
-				%td= sec.section
-				%td= sec.code
-				%td= sec.open_seats
+			%table.section
+				%tr
+					%td.col1
+						%strong Section
+						= sec.section
+					%td.col2
+						%strong Code
+						= sec.code
+					%td{ :class => 'col3', :colspan => 3 }
+						%strong Open Seats
+						= sec.open_seats
+				%tr.head
+					%td Day
+					%td Time
+					%td Instructor
+					%td Location
+					%td Online?
+				- sec.section_times.each do |time|
+					- s_time = time.start_time.to_time.strftime('%l:%M %p')
+					- e_time = time.end_time.to_time.strftime('%l:%M %p')
+					%tr
+						%td= time.day
+						%td #{s_time} - #{e_time}
+						%td= time.instructor
+						%td #{time.building}/#{time.room}
+						%td= time.online?
+			%br
