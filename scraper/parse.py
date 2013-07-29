@@ -2,6 +2,7 @@ import sys
 from BeautifulSoup import BeautifulSoup
 import re
 import HTMLParser
+import MySQLdb
 
 h = HTMLParser.HTMLParser()
 
@@ -37,6 +38,16 @@ bigwhiteboxschema = [
 whiteboxcounter = 0
 bigwhiteboxcounter = 0
 
+db = MySQLdb.connect(host="localhost", # your host, usually localhost
+                     user="daniel",
+                      passwd="tillyer",
+                      db="ccny_scheduler")
+
+cur = db.cursor() 
+
+cur.execute("SELECT * FROM courses")
+
+print cur.fetchall()
 
 things = soup.findAll("td", { "class" : re.compile((r"^(whitebox|bigwhitebox)$")) });
 
@@ -51,5 +62,6 @@ for thing in things :
 		if bigwhiteboxcounter == len(bigwhiteboxschema):
 			print '-----------'
 			bigwhiteboxcounter = 0
+
 		print bigwhiteboxschema[bigwhiteboxcounter]+": "+h.unescape(thing.getText())
 		bigwhiteboxcounter = bigwhiteboxcounter + 1;
